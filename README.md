@@ -32,7 +32,7 @@ main 上存在可靠 Commit
 
 Git 文件和 Commit 是权威记录；聊天历史只作为辅助上下文。
 
- ```markdown
+
    ## 2. Lesson 0：Clone 仓库并启动 Agent
 
    ### 2.1 Pre-Agent Step：手动 Clone
@@ -218,7 +218,7 @@ Git 文件和 Commit 是权威记录；聊天历史只作为辅助上下文。
    tags: lesson-snapshot-01 ... lesson-snapshot-09
    remote: none
    ```
- ```
+
 
 ## 3. 课程体系
 
