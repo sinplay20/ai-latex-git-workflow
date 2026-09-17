@@ -1,0 +1,16 @@
+/build/
+
+*.aux
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Ignore the exact generated manuscript PDF if it is built outside build/.
+# Do not use *.pdf when the project contains PDF figures.
+/manuscript.pdf

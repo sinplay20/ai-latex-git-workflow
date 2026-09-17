@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\newcommand{\speaker}[1]{\par\noindent\textsc{#1}. }
+\title{Hamlet: Selected Scenes for Git and LaTeX Practice}
+\author{William Shakespeare; teaching apparatus by the course authors}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+This short public-domain classroom edition is designed for learning Git-based
+version control with LaTeX. Its history contains both textual revisions and
+source-tree reorganizations.
+\end{abstract}
+\input{frontmatter/editor-note}
+\input{frontmatter/cast}
+\input{text/act-1-scene-1}
+\input{text/act-3-scene-1}
+\input{text/act-5-scene-2}
+\input{notes/editorial-notes}
+\ifdefined\instructorversion
+  \appendix
+  \input{appendices/teaching-notes}
+\fi
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\ifdefined\submitversion
+  \usepackage[doublespacing]{setspace}
+\fi
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[square,numbers]{natbib}
+\usepackage[hidelinks]{hyperref}
+\bibliographystyle{plain}
+
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{[Paper Title]}
+\author{[Author Name]\\
+\small [Department and Institution]\\
+\small \texttt{[email@example.edu]}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+[State the problem, framework, principal result, and significance concisely.]
+\end{abstract}
+
+\noindent\textbf{Keywords.}
+[keywords]\par
+\smallskip
+\noindent\textbf{2020 Mathematics Subject Classification.}
+[Primary and secondary codes].
+
+\input{sections/01_introduction}
+\input{sections/02_preliminaries}
+\input{sections/03_main_results}
+\input{sections/04_proofs}
+\input{sections/05_discussion}
+
+\ifdefined\submitversion
+\else
+  \appendix
+  \input{appendices/a_internal_notes}
+\fi
+
+\bibliography{references}
+\end{document}

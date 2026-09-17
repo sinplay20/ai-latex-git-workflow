@@ -1,0 +1,20 @@
+# Generated learner and reference repositories
+/examples/hamlet/hamlet-history-source/
+/examples/hamlet/hamlet-history-work/
+
+# LaTeX build output anywhere in the repository
+**/build/
+*.aux
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# OS/editor files
+.DS_Store
+Thumbs.db

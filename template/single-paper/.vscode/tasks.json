@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "LaTeX: Build Working",
+      "type": "shell",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-outdir=build",
+        "paper-working.tex"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "LaTeX: Build Submission",
+      "type": "shell",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-outdir=build",
+        "paper-submit.tex"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
