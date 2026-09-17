@@ -6,22 +6,22 @@
 
 ## Step 1: Clone this repository
 
-Ask the learner for the actual GitHub repository URL, then run:
+Clone the confirmed public GitHub repository:
 
 ```powershell
-git clone <repository-url>
-Set-Location .\AI-LaTeX-Git-Workflow
+git clone https://github.com/sinplay20/ai-latex-git-workflow.git
+Set-Location .\ai-latex-git-workflow
 code .
 ```
 
-Do not guess the URL, destination, or repository visibility.
+The repository is public. Do not substitute a different URL or destination without learner confirmation.
 
 ## Step 2: Verify the course repository
 
 In VS Code, confirm:
 
 ```text
-repository root: AI-LaTeX-Git-Workflow
+repository root: ai-latex-git-workflow
 branch: main
 working tree: clean
 ```

@@ -1,6 +1,8 @@
-# AI-Assisted LaTeX and Git Workflow
+# AI 辅助 LaTeX 与 Git 工作流
 
-一个面向研究人员、研究生和 AI Agent 使用者的实践仓库：通过 **VS Code + Git + 模块化 LaTeX** 管理 ChatGPT、OpenCode、Pi 等 Agent 参与修改的论文。
+> 仓库名称：`ai-latex-git-workflow`
+
+这是一个面向研究人员、研究生和 AI Agent 使用者的中文实践仓库：通过 **VS Code + Git + 模块化 LaTeX** 管理 ChatGPT、OpenCode、Pi 等 Agent 参与修改的论文。
 
 当前版本以普通 Markdown、`AGENTS.md`、Prompt、可复现 Git 示例和单篇论文模板为核心，**暂不实现 Agent Skill 或自动 Commit 工具**。
 
@@ -32,11 +34,11 @@ Git 文件和 Commit 是权威记录；聊天历史只作为辅助上下文。
 
 ## 2. Lesson 0：Clone 本仓库并开始课程
 
-首先把仓库 clone 到本地。将 `<repository-url>` 替换为实际 GitHub 地址：
+首先把 public 仓库 clone 到本地：
 
 ```powershell
-git clone <repository-url>
-Set-Location .\AI-LaTeX-Git-Workflow
+git clone https://github.com/sinplay20/ai-latex-git-workflow.git
+Set-Location .\ai-latex-git-workflow
 code .
 ```
 
@@ -235,10 +237,11 @@ H:\AI-LaTeX-Single-Paper-Template
 
 模板已经过 working 和 submission 两种实际编译验证。
 
-## 10. 隐私与发布
+## 10. 隐私、可见性与许可证
 
+- 目标 GitHub 仓库已确认为 Public；
 - 本仓库不包含私人研究论文；
 - Hamlet 文本为公版短节选；
-- 上传真实论文前必须确认远程仓库为 Private；
+- 上传真实论文前必须另建并确认 Private 的远程仓库；
 - 不要提交 API key、OAuth token、密码或其他凭据；
-- 本项目暂未选择开源许可证，公开发布前应由维护者明确决定许可证。
+- 本项目当前不附带开源许可证，许可证将在以后单独决定。
