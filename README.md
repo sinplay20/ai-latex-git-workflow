@@ -32,50 +32,193 @@ main 上存在可靠 Commit
 
 Git 文件和 Commit 是权威记录；聊天历史只作为辅助上下文。
 
-## 2. Lesson 0：Clone 本仓库并开始课程
+ ```markdown
+   ## 2. Lesson 0：Clone 仓库并启动 Agent
 
-首先把 public 仓库 clone 到本地：
+   ### 2.1 Pre-Agent Step：手动 Clone
 
-```powershell
-git clone https://github.com/sinplay20/ai-latex-git-workflow.git
-Set-Location .\ai-latex-git-workflow
-code .
-```
+   Clone 是进入 Agent 工作流之前、由用户独立完成的准备步骤。只有仓库已经 clone 并在 VS Code 中打开后，Agent 才能读取其中的 `AGENTS.md` 和
+ 课程材料。
 
-在 VS Code 中确认：
+   ### 2.2 理解 Clone 的目标位置
 
-- 打开的是整个仓库目录；
-- 左下角显示 `main`；
-- Source Control 的 `Changes` 为空。
+   如果没有指定目标路径，`git clone` 会在终端的**当前工作目录**中创建仓库文件夹。
 
-然后让 Agent 读取教学规则：
+   先确认当前目录。
 
-```text
-请先完整读取根目录 AGENTS.md、course/COURSE.md、
-course/instructor/AGENT-INSTRUCTOR-PROTOCOL.md 和
-course/lessons/00-course-orientation.md。
-从 Lesson 0 开始，一次只给我一个可验证步骤。
-所有 Git 写操作只在 Hamlet 示例中练习，不要修改真实论文。
-```
+   PowerShell：
 
-创建 Hamlet 学习仓库：
+   ```powershell
+   Get-Location
+   ```
 
-```powershell
-Set-Location .\examples\hamlet
-.\setup-example.ps1
-Set-Location .\hamlet-history-work
-code .
-```
+   Git Bash：
 
-预期状态：
+   ```bash
+   pwd
+   ```
 
-```text
-branch: main
-working tree: clean
-commits: 9
-tags: lesson-snapshot-01 ... lesson-snapshot-09
-remote: none
-```
+   例如，当前目录是：
+
+   ```text
+   E:\
+   ```
+
+   运行：
+
+   ```bash
+   git clone https://github.com/sinplay20/ai-latex-git-workflow.git
+   ```
+
+   将创建：
+
+   ```text
+   E:\ai-latex-git-workflow
+   ```
+
+   如果当前目录是：
+
+   ```text
+   E:\Projects
+   ```
+
+   则会创建：
+
+   ```text
+   E:\Projects\ai-latex-git-workflow
+   ```
+
+   因此，不要仅根据 VS Code 当前打开的窗口推断位置，应以 Terminal 显示的当前目录为准。
+
+   ### 2.3 方法一：使用 VS Code Terminal
+
+   在 VS Code 中选择：
+
+   ```text
+   Terminal → New Terminal
+   ```
+
+   确认 Terminal 当前位于希望存放仓库的目录，然后运行：
+
+   ```bash
+   git clone https://github.com/sinplay20/ai-latex-git-workflow.git
+   ```
+
+   如果希望不切换 Terminal 当前目录，可以明确指定目标位置。
+
+   PowerShell：
+
+   ```powershell
+   git clone https://github.com/sinplay20/ai-latex-git-workflow.git E:\ai-latex-git-workflow
+   ```
+
+   Git Bash：
+
+   ```bash
+   git clone https://github.com/sinplay20/ai-latex-git-workflow.git /e/ai-latex-git-workflow
+   ```
+
+   ### 2.4 方法二：使用 Git Bash Here
+
+   1. 在文件资源管理器中打开目标目录，例如 `E:\`；
+   2. 在空白处右键；
+   3. 选择 **Open Git Bash here**；
+   4. 运行：
+
+   ```bash
+   git clone https://github.com/sinplay20/ai-latex-git-workflow.git
+   ```
+
+   ### 2.5 在 VS Code 中打开仓库
+
+   Clone 完成后，可以在 Terminal 中运行：
+
+   ```bash
+   cd ai-latex-git-workflow
+   code .
+   ```
+
+   也可以使用：
+
+   ```text
+   File → Open Folder
+   ```
+
+   然后选择：
+
+   ```text
+   E:\ai-latex-git-workflow
+   ```
+
+   必须打开整个 `ai-latex-git-workflow` 文件夹，而不是其中的单个文件或子目录。
+
+   ### 2.6 检查仓库状态
+
+   在 VS Code Terminal 中运行：
+
+   ```bash
+   git status --short --branch
+   git rev-parse --show-toplevel
+   ```
+
+   预期状态：
+
+   ```text
+   branch: main
+   working tree: clean
+   repository root: ...\ai-latex-git-workflow
+   ```
+
+   同时确认：
+
+   - VS Code 左下角显示 `main`；
+   - Source Control 的 `Changes` 为空；
+   - Explorer 中能够看到 `AGENTS.md`、`README.md`、`course/` 和 `examples/`。
+
+   ### 2.7 启动 Agent
+
+   完成上述检查后，再启动 Agent，并发送：
+
+   ```text
+   请先完整读取根目录 AGENTS.md、README.md、
+   course/COURSE.md、
+   course/instructor/AGENT-INSTRUCTOR-PROTOCOL.md 和
+   course/lessons/00-course-orientation.md。
+
+   从 Lesson 0 的仓库状态检查开始，一次只给我一个可验证步骤。
+   所有 Git 写操作只在 Hamlet 示例中练习，不要修改真实论文。
+   ```
+
+   ### 2.8 创建 Hamlet 学习仓库
+
+   Agent 确认课程仓库状态正确后，在 PowerShell 中运行：
+
+   ```powershell
+   Set-Location .\examples\hamlet
+   .\setup-example.ps1
+   Set-Location .\hamlet-history-work
+   code .
+   ```
+
+   如果使用 Git Bash，可以运行：
+
+   ```bash
+   cd examples/hamlet
+   powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./setup-example.ps1
+   cd hamlet-history-work
+   code .
+   ```
+
+   预期状态：
+
+   ```text
+   branch: main
+   working tree: clean
+   commits: 9
+   tags: lesson-snapshot-01 ... lesson-snapshot-09
+   remote: none
+   ```
+ ```
 
 ## 3. 课程体系
 
